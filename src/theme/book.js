@@ -223,13 +223,16 @@ function playground_text(playground) {
                     pre_block.insertBefore(buttons, pre_block.firstChild);
                 }
 
-                var clipButton = document.createElement('button');
-                clipButton.className = 'fa fa-copy clip-button';
-                clipButton.title = 'Copy to clipboard';
-                clipButton.setAttribute('aria-label', clipButton.title);
-                clipButton.innerHTML = '<i class=\"tooltiptext\"></i>';
+                let code_block = pre_block.querySelector("code");
+                if (!code_block.classList.contains("nocopy")) {
+                  var clipButton = document.createElement("button");
+                  clipButton.className = "fa fa-copy clip-button";
+                  clipButton.title = "Copy to clipboard";
+                  clipButton.setAttribute("aria-label", clipButton.title);
+                  clipButton.innerHTML = '<i class="tooltiptext"></i>';
 
-                buttons.insertBefore(clipButton, buttons.firstChild);
+                  buttons.insertBefore(clipButton, buttons.firstChild);
+                }
             }
         });
     }
